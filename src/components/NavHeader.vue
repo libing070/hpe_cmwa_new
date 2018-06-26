@@ -15,7 +15,7 @@
                background-color="#21649b"
                text-color="#fff"
                active-text-color="#fff">
-        <el-menu-item index="4" style="float:right;vertical-align:middle;text-align:center;height: 100%;line-height: 100%"><img src="./../assets/images/home.png" width=30 height=30 style="vertical-align:middle;"/><a href="/hp/console" style="text-decoration:none;display:table-cell;">主菜单</a></el-menu-item>
+        <el-menu-item index="4" style="float:right;"><a style="display: block;line-height: 50px;text-decoration: none;" href="/hp/console"><img src="./../assets/images/home.png" style="padding: 5px;">主菜单</a></el-menu-item>
         <!--<a href="javascript:;" @click="add">点击++</a><span>{{count}}</span>-->
       </el-menu>
     </div>
