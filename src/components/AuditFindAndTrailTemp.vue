@@ -65,10 +65,7 @@
                       </div>
                       <div style="text-align: center;margin-top: 10px">
                          <a href="#"><img v-bind:src="item.imageurl" width="60px" height="60px"/></a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <el-tooltip class="item" effect="dark" content="审计发现" placement="top-start">
-                          <a href="#" style="text-decoration:none; "><span v-if="onGetAuditDetailInfoFun[1]==1"><img src="./../assets/images/icon/faxian.png"/></span><span v-else><img src="./../assets/images/icon/xiansuo.png"/></span>&nbsp;&nbsp;<span>{{onGetAuditDetailInfoFun[1]==1?item.discoverNum:item.clueNum}}</span></a>
-                         </el-tooltip>
+                        &nbsp;<a href="#" style="text-decoration:none; "><span v-if="onGetAuditDetailInfoFun[1]==1"><img src="./../assets/images/icon/faxian.png"/></span><span v-else><img src="./../assets/images/icon/xiansuo.png"/></span>&nbsp;&nbsp;<span>{{onGetAuditDetailInfoFun[1]==1?item.discoverNum:item.clueNum}}</span></a>
                       </div>
                     </el-card>
                 </el-col>

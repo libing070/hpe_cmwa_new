@@ -6,7 +6,7 @@
  import axios from 'axios'
  import { Loading, Message } from 'element-ui'
 
- axios.defaults.timeout=10000;
+ axios.defaults.timeout=30000;
   // http请求拦截器
  var loadinginstace;
  axios.interceptors.request.use(config=>{
