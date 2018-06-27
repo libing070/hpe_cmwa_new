@@ -2,14 +2,14 @@
   <div>
       <div class="grid-content bg-purple-light" style="padding: 5px;background-color: rgb(226, 230, 239);">
            <nav-bread>
-             <!--<span slot="navBreadA" @click="jumpIndexPage()">首页</span>-->
+             &lt;!&ndash;<span slot="navBreadA" @click="jumpIndexPage()">首页</span>&ndash;&gt;
              <span style="cursor:pointer" slot="navBreadB" @click="jumpNavBreadB()" v-bind:style="auditTitleBread!=''?'font-weight: 700;':'font-weight:;'">{{navBreadName}}</span>
              <span style="cursor:pointer" slot="navBreadC" @click="jumpNavBreadC()" v-if="auditTitleBread!=''">{{auditTitleBread}}</span>
            </nav-bread>
       </div>
-    <div class="grid-content bg-purple-light" style="">
+    <div class="grid-content bg-purple-light clear-fix">
      <el-col :span="24" style="background: rgb(229, 233, 242)" class="main-show-wrap" >
-            <router-view v-on:decre="showCh" :key="activeDate"></router-view>
+            <router-view v-on:decre="showCh":key="activeDate"></router-view>
       </el-col>
     </div>
   </div>

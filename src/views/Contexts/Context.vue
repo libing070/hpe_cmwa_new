@@ -12,14 +12,14 @@
       </el-collapse-item>
     </el-collapse>
     <div class="main-show-wrap-div" id="viewportdiv">
-    <iframe class="contextIframe" id="wrapperdiv" style="height: 90%;width: 100%" src="">
+    <iframe class="contextIframe" id="wrapperdiv" style="height: 90%;width: 100%; overflow: hidden;" src="">
     </iframe>
     </div>
     <el-dialog
       title="详情"
       :visible.sync="dialogVisible"
       width="50%">
-      <el-tabs v-model="activeName1" @tab-click="handleClick">
+      <el-tabs v-model="activeName1" @tab-click="handleClick" style="height: 300px">
         <el-tab-pane label="基本信息" name="first">
           <el-form ref="form" :model="sizeForm1" label-width="150px" size="mini">
 

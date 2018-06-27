@@ -1,5 +1,5 @@
 <template>
-  <el-row class="header">
+  <el-row class="header" style="background-color: #21649b">
     <el-col :span="3">
       <div class="grid-content header-log-style">
          <img src="../assets/images/image_log.png" />
@@ -8,15 +8,14 @@
         </el-radio-group>-->
        </div>
     </el-col>
-    <el-col :span="21"><div class="grid-content bg-purple-dark ">
+    <el-col :span="21"><div class="grid-content">
       <el-menu :default-active="activeIndex" class="el-menu-demo" style="height: 50px"
                mode="horizontal"
                @select="handleSelect"
                background-color="#21649b"
                text-color="#fff"
                active-text-color="#fff">
-        <el-menu-item index="4" style="float:right;"><a style="display: block;line-height: 50px;text-decoration: none;" href="/hp/console"><img src="./../assets/images/home.png" style="padding: 5px;">主菜单</a></el-menu-item>
-        <!--<a href="javascript:;" @click="add">点击++</a><span>{{count}}</span>-->
+        <el-menu-item index="4" style="float:right;height: 50px;"><a style="display: block;text-decoration: none;line-height: 50px;" href="/hp/console"><img src="./../assets/images/home.png" style="padding: 0px 5px">主菜单</a></el-menu-item>
       </el-menu>
     </div>
     </el-col>
@@ -67,7 +66,9 @@
 <style>
 .header-log-style{
   text-align: center;
+/*
   background: #21649b;
+*/
   border-radius:0px;
   height: 50px;
 }

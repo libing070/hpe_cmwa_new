@@ -14,15 +14,15 @@
 /*
    console.log('-------------------request init----------------');
 */
-   loadinginstace=Loading.service({
+   /*loadinginstace=Loading.service({
      lock: true,
      text: '拼命加载中...',
      spinner: 'el-icon-loading',
      background: 'rgba(0, 0, 0, 0.7)'
-   });
+   });*/
    return config
  },error => {
-   loadinginstace.close();
+  // loadinginstace.close();
    Message.error({
      message:'加载超时'
    });
@@ -32,10 +32,10 @@
 /*
    console.log('-------------------response init----------------');
 */
-   loadinginstace.close();
+   //loadinginstace.close();
    return data
  },error => {
-   loadinginstace.close();
+  // loadinginstace.close();
    Message.error({
      message:'加载失败'
    });

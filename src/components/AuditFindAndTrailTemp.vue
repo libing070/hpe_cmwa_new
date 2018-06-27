@@ -12,7 +12,7 @@
               <ul>
                 <li :class="{'first':index==0}" :style="flash4UlLiWidth" v-for="(item,index) in domainInfoData" :key="index" @mouseover="mouseoverShow()">
                   <div class="imgTop">
-                    <div style="width:100%;height: 180px;min-width:350px;cursor:pointer" class="imgTopDiv tm" @click="onGetAuditDetailInfo(item.firDomain)">
+                    <div style="width:100%;height: 180px;min-width:350px;cursor:pointer" class="imgTopDiv tm" @click="onGetAuditDetailInfo(item.firDomain,item.bgcolor)">
                       <el-card  class="box-card" shadow="hover"  v-bind:style="item.bgcolor" style="height: 100%;width: 100%">
                         <div  class="text item" style="text-align: left;padding-top:5px;padding-left:10px;font-weight: bold">
                           <a href="#"  style="text-decoration:none;color: #303133">{{index+1 }}.{{item.firDomainName}}</a>
@@ -47,7 +47,7 @@
             <span v-else>
                <el-row :gutter="0" class="console-el-row">
                 <span v-for="(item,index) in domainInfoData" :key="index">
-                  <el-col :span="6" class="audit-find-trail-el-row-col-6" @click.native="onGetAuditDetailInfo(item.firDomain)">
+                  <el-col :span="6" class="audit-find-trail-el-row-col-6" @click.native="onGetAuditDetailInfo(item.firDomain,item.bgcolor)">
                     <el-card class="box-card audit-find-trail-style" shadow="hover"  v-bind:style="item.bgcolor">
                       <div  class="text item" style="text-align: left;padding-top:5px;padding-left:10px;font-weight: bold">
                         <a href="#"  style="text-decoration:none;color: #303133">{{index+1 }}.{{item.firDomainName}}</a>
@@ -84,7 +84,7 @@
                   <div style="margin-bottom: 5px">
                   <el-row :gutter="0" style=";border-radius:4px;">
                     <el-col :span="2">
-                      <div class="grid-content bg-purple" style="background-color: rgb(64, 158, 255);line-height: 70px; text-align: center;font-size: 20px; font-family: inherit;">{{index+1}}</div>
+                      <div class="grid-content bg-purple audit-find-trail-card-list_bg" :style="item.bgcolor">{{index+1}}</div>
                     </el-col>
                     <el-col :span="18">
                       <div class="grid-content bg-purple" style="padding:0px;background-color: rgb(245, 245, 245);line-height: 70px;height:70px">
@@ -136,7 +136,8 @@
             },
             oneLiScrollOpenWidth:'',
             flash4UlLiWidth_:'',
-            oneLiScrollOpenWidth_:''
+            oneLiScrollOpenWidth_:'',
+            bgcolorvalue:'#F4C02F'
         }
       },
       mounted() {
@@ -162,14 +163,14 @@
               this.domainInfoData[i].bgcolor='background-color:'+itemsColorList[i];
             }
             this.firDomain=this.domainInfoData[0].firDomain;
-            this.onGetAuditDetailInfo(this.firDomain);
+            this.onGetAuditDetailInfo(this.firDomain,this.domainInfoData[0].bgcolor);
 
 
           });
 
 
         },
-        onGetAuditDetailInfo(firDomain){
+        onGetAuditDetailInfo(firDomain,bgcolor){
           this.$axios.post('/hpe/getAuditDetailInfos', Qs.stringify({
             'taskCode':this.onGetAuditDetailInfoFun[0],
             'firDomain':firDomain,
@@ -177,6 +178,9 @@
           })).then(response => {
             if(response.data.length>0){
               this.getAuditData=response.data;
+              for(let i=0;i<this.getAuditData.length;i++){
+                this.getAuditData[i].bgcolor=bgcolor;
+              }
               $("#boxCardWrapperdiv").css("height",this.getAuditData.length*100+"px");
               commonMethods.initNiceScroll('#boxCardViewportdiv','#boxCardWrapperdiv');
             }
@@ -244,21 +248,14 @@
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
+.audit-find-trail-card-list_bg{
+  line-height: 70px;
+  text-align: center;
+  font-size: 20px;
+  font-family: inherit;
+}
   .flash4UlLi.first{
 
   }
-  /*.audit-find-trail-temp .el-card__body {
-    padding: 5px 10px;
-  }*/
-@media screen and (max-width: 1366px) and (min-width: 1024px) {
-/* .audit-find-trail-card-list_{
-   height: 500px;
- }*/
-}
-@media screen and (max-width: 1600px) and (min-width: 1367px) {
 
-}
-@media screen and (max-width: 1920px) and (min-width: 1601px) {
-
-}
 </style>

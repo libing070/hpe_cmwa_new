@@ -10,7 +10,9 @@
         <nav-main class="main-right" :listenScreenHeight="screenHeight"></nav-main>
       </el-col>
     </el-row>
+<!--
       <nav-footer></nav-footer>
+-->
   </div>
 
 </template>

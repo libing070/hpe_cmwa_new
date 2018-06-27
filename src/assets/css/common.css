@@ -7,6 +7,7 @@ html,body,#app {
 
 }
 body {
+  padding-right:0 !important;/*处理弹窗抖动*/
   font-family: "Microsoft YaHei",'arial';
   background-color: #e5e9f2;
   overflow: hidden;
@@ -70,7 +71,7 @@ img{
 @media screen and (max-width: 1366px) and (min-width: 1024px) {
   .main-show-wrap,
   .main-show-wrap .main-show-wrap-div{
-    height: 480px;
+    height: 505px;
   }
   .audit-find-trail-card-list{
     height: 210px;
@@ -88,7 +89,7 @@ img{
 @media screen and (max-width: 1920px) and (min-width: 1601px) {
    .main-show-wrap,
    .main-show-wrap .main-show-wrap-div{
-     height: 790px;
+     height: 840px;
    }
   .audit-find-trail-card-list{
     height: 560px;
