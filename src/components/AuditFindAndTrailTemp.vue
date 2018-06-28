@@ -47,7 +47,7 @@
             <span v-else>
                <el-row :gutter="0" class="console-el-row">
                 <span v-for="(item,index) in domainInfoData" :key="index">
-                  <el-col :span="6" class="audit-find-trail-el-row-col-6" @click.native="onGetAuditDetailInfo(item.firDomain,item.bgcolor)">
+                  <el-col :span="6" class="audit-find-trail-el-row-col-6" style="cursor:pointer" @click.native="onGetAuditDetailInfo(item.firDomain,item.bgcolor)">
                     <el-card class="box-card audit-find-trail-style" shadow="hover"  v-bind:style="item.bgcolor">
                       <div  class="text item" style="text-align: left;padding-top:5px;padding-left:10px;font-weight: bold">
                         <a href="#"  style="text-decoration:none;color: #303133">{{index+1 }}.{{item.firDomainName}}</a>

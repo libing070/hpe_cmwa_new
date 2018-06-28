@@ -11,7 +11,7 @@
         <span  v-for="(item,index) in dialogModelAuditsFun[1]" :key="index">
         <el-row :gutter="0" style=";border-radius:4px;padding-bottom: 5px">
         <el-col :span="2" style="padding:0px;border-radius:0px">
-          <div class="grid-content bg-purple" style="padding:0px;background-color: rgb(64, 158, 255);line-height: 70px; text-align: center;font-size: 20px; font-family: inherit;">{{index+1}}</div>
+          <div class="grid-content bg-purple" v-bind:style="dialogModelAuditsFun[3]" style="padding:0px;line-height: 70px; text-align: center;font-size: 20px; font-family: inherit;">{{index+1}}</div>
         </el-col>
         <el-col :span="18" style="padding:0px;border-radius:0px">
           <div class="grid-content bg-purple" style="border-radius:0px;padding:0px;background-color: rgb(245, 245, 245);line-height: 70px;height:70px">
@@ -87,7 +87,6 @@
    height: 350px\9;
    overflow :auto\9;
  }
-
 </style>
 
 
@@ -100,7 +99,7 @@
     data() {
       return {
         dialogModelAuditData:[{
-          'titleName':'',
+          'titleName':''
         }],
         getAuditData:[],
         dialogVisible:false,
@@ -126,7 +125,8 @@
     watch:{
       dialogModelAuditsFun([...data]){
         this.dialogVisible=data[2];
-       commonMethods.initNiceScroll('#viewportdiv','#wrapperdiv');
+        //$(".dialog-model-audit-div .el-dialog__header").css('background-color',this.dialogModelAuditsFun[3].replace("background-color:",''));
+        commonMethods.initNiceScroll('#viewportdiv','#wrapperdiv');
 
 
       }

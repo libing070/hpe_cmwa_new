@@ -197,28 +197,28 @@
                      <el-col :span="6" class="console-el-row-col-6">
                   <el-card class="box-card console-domain-info-style" shadow="hover"  v-bind:style="item.bgcolor">
                     <div  class="text item" style="text-align: left;padding-top:5px;padding-left:10px;font-weight: bold">
-                      <a href="#" @click="onDialogModelAudits([{'titleName':item.firDomainName,'firDomain':item.firDomain,'firDomainName':item.firDomainName}])"  style="text-decoration:none;color: #303133">{{index+1 }}.{{item.firDomainName}}</a>
+                      <a href="#" @click="onDialogModelAudits([{'titleName':item.firDomainName,'firDomain':item.firDomain,'firDomainName':item.firDomainName,'bgcolor':item.bgcolor}])"  style="text-decoration:none;color: #303133">{{index+1 }}.{{item.firDomainName}}</a>
                     </div>
                     <div style="text-align: left;font-size:12px;padding-top: 5px;padding-left:15px;height: 40px">
                       <span v-for="(it,i) in item.secDomainList" :key="i">
                         <el-tooltip class="item" style="color: black" effect="dark" v-bind:content="it.secDomainName" placement="top-start">
                            <a href="#"  style="text-decoration:none;color: #303133">
                              <span>{{index+1}}.{{i+1}}</span>
-                             <span @click="onDialogModelAudits([{'titleName':it.secDomainName,'firDomain':item.firDomain,'secDomain':it.secDomain,'secDomainName':it.secDomainName}])">{{(it.secDomainName.length>5)?((it.secDomainName.substring(0,5))+'...'):(it.secDomainName)}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             <span @click="onDialogModelAudits([{'titleName':it.secDomainName,'firDomain':item.firDomain,'secDomain':it.secDomain,'secDomainName':it.secDomainName,'bgcolor':item.bgcolor}])">{{(it.secDomainName.length>5)?((it.secDomainName.substring(0,5))+'...'):(it.secDomainName)}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                              <span v-if="(i+1)%2==0"><br/></span>
                            </a>
                         </el-tooltip>
                       </span>
                     </div>
                     <div style="text-align: center;margin-top: 10px">
-                       <a href="#"><img @click="onDialogModelAudits([{'titleName':item.firDomainName,'firDomain':item.firDomain,'firDomainName':item.firDomainName}])" v-bind:src="item.imageurl" width="60px" height="60px"/></a>
+                       <a href="#"><img @click="onDialogModelAudits([{'titleName':item.firDomainName,'firDomain':item.firDomain,'firDomainName':item.firDomainName,'bgcolor':item.bgcolor}])" v-bind:src="item.imageurl" width="60px" height="60px"/></a>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <el-tooltip class="item" effect="dark" content="审计发现" placement="top-start">
-                        <a href="#" style="text-decoration:none; " @click="onDialogModelAudits([{'titleName':'审计发现','firDomain':item.firDomain,'auditType':1}])"><img src="./../assets/images/icon/faxian.png"/>&nbsp;&nbsp;<span>{{item.discoverNum}}</span></a>
+                        <a href="#" style="text-decoration:none; " @click="onDialogModelAudits([{'titleName':'审计发现','firDomain':item.firDomain,'auditType':1,'bgcolor':item.bgcolor}])"><img src="./../assets/images/icon/faxian.png"/>&nbsp;&nbsp;<span>{{item.discoverNum}}</span></a>
                        </el-tooltip>
                       &nbsp;&nbsp;&nbsp;&nbsp;
                       <el-tooltip class="item" effect="dark" content="审计线索" placement="top-start">
-                        <a href="#"  style="text-decoration:none; "  @click="onDialogModelAudits([{'titleName':'审计线索','firDomain':item.firDomain,'auditType':2}])"> <img src="./../assets/images/icon/xiansuo.png"/>&nbsp;&nbsp;<span>{{item.clueNum}}</span></a>
+                        <a href="#"  style="text-decoration:none; "  @click="onDialogModelAudits([{'titleName':'审计线索','firDomain':item.firDomain,'auditType':2,'bgcolor':item.bgcolor}])"> <img src="./../assets/images/icon/xiansuo.png"/>&nbsp;&nbsp;<span>{{item.clueNum}}</span></a>
                       </el-tooltip>
                     </div>
                   </el-card>
@@ -231,7 +231,7 @@
       </el-row>
       </div>
       <!--** 弹出层**-->
-      <dialog-model-audits :dialogModelAuditsFun="[titleName,getAuditData,dialogVisible]"></dialog-model-audits>
+      <dialog-model-audits :dialogModelAuditsFun="[titleName,getAuditData,dialogVisible,bgcolor]"></dialog-model-audits>
     </div>
 </template>
 <style>
@@ -310,7 +310,8 @@
         dialogModelAuditData:[],
         getAuditData:[],
         dialogVisible:false,
-        titleName:''
+        titleName:'',
+        bgcolor:''
       }
     },
     name: "console",
@@ -358,6 +359,7 @@
           this.dialogModelAuditData.push(i);
         }
         this.titleName=this.dialogModelAuditData[0].titleName;
+        this.bgcolor=this.dialogModelAuditData[0].bgcolor;
         this.$axios.post('/hpe/getAuditDetailInfos', Qs.stringify({
           'taskCode':cacheHelper.GetCacheByKey("taskCode"),
           'firDomain':this.dialogModelAuditData[0].firDomain,
@@ -392,10 +394,13 @@
         this.titleName='';
         let typeCode="";
         if("tableshenjidian"==column.property){
+          this.titleName="审计点";
           typeCode="";
         }else if("tableok"==column.property){
+          this.titleName="已完成";
           typeCode="Y";
         }else if ("tableno"==column.property){
+          this.titleName="未完成";
           typeCode="N";
         }else{
           return ;
@@ -406,6 +411,7 @@
         })).then(response => {
           if(response.data.length>0){
             this.getAuditData=response.data;
+            this.bgcolor='background-color:#F4C02F';
             this.dialogVisible=true;
           }else{
             this.$message({
@@ -421,10 +427,13 @@
         this.titleName='';
         let typeCode="";
         if("tableshenjidian1"==column.property){
+          this.titleName="审计点";
           typeCode="";
         }else if("tableok1"==column.property){
+          this.titleName="已完成";
           typeCode="Y";
         }else if ("tableno1"==column.property){
+          this.titleName="未完成";
           typeCode="N";
         }else{
           return ;
@@ -435,6 +444,7 @@
         })).then(response => {
           if(response.data.length>0){
             this.getAuditData=response.data;
+            this.bgcolor='background-color:#F4C02F';
             this.dialogVisible=true;
           }else{
             this.$message({
