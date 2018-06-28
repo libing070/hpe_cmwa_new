@@ -201,7 +201,7 @@
                     </div>
                     <div style="text-align: left;font-size:12px;padding-top: 5px;padding-left:15px;height: 40px">
                       <span v-for="(it,i) in item.secDomainList" :key="i">
-                        <el-tooltip class="item" effect="dark" v-bind:content="it.secDomainName" placement="top-start" :popper-class="toolTipClass">
+                        <el-tooltip class="item" style="color: black" effect="dark" v-bind:content="it.secDomainName" placement="top-start">
                            <a href="#"  style="text-decoration:none;color: #303133">
                              <span>{{index+1}}.{{i+1}}</span>
                              <span @click="onDialogModelAudits([{'titleName':it.secDomainName,'firDomain':item.firDomain,'secDomain':it.secDomain,'secDomainName':it.secDomainName}])">{{(it.secDomainName.length>5)?((it.secDomainName.substring(0,5))+'...'):(it.secDomainName)}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -213,11 +213,11 @@
                     <div style="text-align: center;margin-top: 10px">
                        <a href="#"><img @click="onDialogModelAudits([{'titleName':item.firDomainName,'firDomain':item.firDomain,'firDomainName':item.firDomainName}])" v-bind:src="item.imageurl" width="60px" height="60px"/></a>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <el-tooltip class="item" effect="dark" content="审计发现" placement="top-start" :popper-class="toolTipClass">
+                      <el-tooltip class="item" effect="dark" content="审计发现" placement="top-start">
                         <a href="#" style="text-decoration:none; " @click="onDialogModelAudits([{'titleName':'审计发现','firDomain':item.firDomain,'auditType':1}])"><img src="./../assets/images/icon/faxian.png"/>&nbsp;&nbsp;<span>{{item.discoverNum}}</span></a>
                        </el-tooltip>
                       &nbsp;&nbsp;&nbsp;&nbsp;
-                      <el-tooltip class="item" effect="dark" content="审计线索" placement="top-start" :popper-class="toolTipClass">
+                      <el-tooltip class="item" effect="dark" content="审计线索" placement="top-start">
                         <a href="#"  style="text-decoration:none; "  @click="onDialogModelAudits([{'titleName':'审计线索','firDomain':item.firDomain,'auditType':2}])"> <img src="./../assets/images/icon/xiansuo.png"/>&nbsp;&nbsp;<span>{{item.clueNum}}</span></a>
                       </el-tooltip>
                     </div>

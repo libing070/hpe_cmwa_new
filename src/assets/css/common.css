@@ -11,7 +11,7 @@ body {
   font-family: "Microsoft YaHei",'arial';
   background-color: #e5e9f2;
   overflow: hidden;
-  min-width: 1024px;
+  min-width: 1366px;
 }
 img{
   border:none;
@@ -64,7 +64,11 @@ img{
 }
 
 .page-login-toolTipClass{
-  background-color: #606266 !important;
+  /*
+  background-color: #E8E8E8 !important;
+  */
+  background-color: #E8E8E8 !important;
+
 
 }
 

@@ -17,9 +17,10 @@
           <div class="grid-content bg-purple" style="border-radius:0px;padding:0px;background-color: rgb(245, 245, 245);line-height: 70px;height:70px">
             <div style="height: 100%;line-height: 100%;padding: 10px">
               <div style="padding-bottom: 20px;font-weight: bold;font-size: 15px;"><span>{{item.auditName}}</span></div>
+              <span v-if="item.modelConclusion!=null">
               <div style="padding-bottom: 20px;">
                 <el-tooltip class="item" effect="dark" placement="top" :popper-class="toolTipClass">
-                  <div slot="content" style="width: 400px">
+                  <div slot="content" style="width: 450px;color: black">
                     {{item.modelConclusion}}
                   </div>
                 <span>模型结论：<span>{{item.modelConclusion!=null?(screenWidth>=1920?(item.modelConclusion.length>=45?item.modelConclusion.substring(0,45)+'...':item.modelConclusion): (item.modelConclusion.length>=30?item.modelConclusion.substring(0,30)+'...':item.modelConclusion)):''}}</span></span>
@@ -27,7 +28,7 @@
               </div>
 <!--
               <div style="padding-bottom: 20px;"><span>审计结论：</span></div>
--->
+-->         </span>
             </div>
           </div>
         </el-col>
