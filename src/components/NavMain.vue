@@ -91,6 +91,7 @@
           console.log(data+new Date());
       },
       loadConsoleData(){//菜单切换console 请求后台加载对应的数据
+        
         this.$axios.post('/hpe/getDomainInfos', Qs.stringify({
           "taskCode":cacheHelper.GetCacheByKey("taskCode")
         })).then(response => {
