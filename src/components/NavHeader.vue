@@ -15,7 +15,7 @@
                background-color="#21649b"
                text-color="#fff"
                active-text-color="#fff">
-        <el-menu-item index="4" style="float:right;height: 50px;"><a style="display: block;text-decoration: none;line-height: 50px;" href="/hp/console"><img src="./../assets/images/home.png" style="padding: 0px 5px">主菜单</a></el-menu-item>
+        <el-menu-item index="4" style="float:right;height: 50px;"><a style="display: block;text-decoration: none;line-height: 50px;" href="http://127.0.0.1:7001/cmca/home/index"><img src="./../assets/images/home.png" style="padding: 0px 5px">主菜单</a></el-menu-item>
       </el-menu>
     </div>
     </el-col>

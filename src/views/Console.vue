@@ -20,7 +20,7 @@
                   <span></span>
                 </el-form-item>
                 <el-form-item label="被审计人："class="console-form-inline-item">
-                  <span>杨阳</span>
+                  <span>任宇星</span>
                 </el-form-item>
                 <el-form-item label="|" class="console-form-inline-item">
                   <span></span>
@@ -57,7 +57,7 @@
                   <div class="left" style="float: left;width: 40%">
                     <h3>团队任务：</h3>
                     <div style="font-size: 14px;padding: 10px 0px">
-                      <p>杨阳 &nbsp;&nbsp;组员您好</p>
+                      <p>丁洪波 &nbsp;&nbsp;组长您好</p>
                       <p>您本次团队的任务如下</p>
                     </div>
                   </div>
@@ -68,7 +68,7 @@
                       </div>
                       <div  style="float: left;font-size: 14px;padding-left: 20px;width: 70%">
                         <span>审计发现 已完成：3 ‖ 10</span>
-                         <el-progress :percentage="33"></el-progress>
+                         <el-progress :percentage="30"></el-progress>
                       </div>
                     </div>
                     <div class="bottom" style="height: 50px;width: 100%">
@@ -124,7 +124,7 @@
                   <div class="left" style="float: left;width: 40%">
                     <h3>个人任务：</h3>
                     <div style="font-size: 14px;padding: 10px 0px">
-                      <p>杨阳 &nbsp;&nbsp;组员您好</p>
+                      <p>丁洪波 &nbsp;&nbsp;组员您好</p>
                       <p>您本次的审计任务如下</p>
                     </div>
                   </div>
@@ -135,7 +135,7 @@
                       </div>
                       <div  style="float: left;font-size: 14px;padding-left: 20px;width: 70%">
                         <span>审计发现 已完成：3 ‖ 10</span>
-                        <el-progress :percentage="33"></el-progress>
+                        <el-progress :percentage="30"></el-progress>
                       </div>
                     </div>
                     <div class="bottom" style="height: 50px">
